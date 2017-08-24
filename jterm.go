@@ -1,7 +1,6 @@
 package jterm
 
 import (
-	"fmt"
 	"reflect"
 
 	"unicode"
@@ -56,6 +55,16 @@ type Terminal struct {
 	ScrollBottomOffset int
 	ScrollOnEcho       bool
 	EchoCommand        bool
+}
+
+// DefaultTerminal contains all of the default values for the Terminal
+var DefaultTerminal = Terminal {
+	Greetings: "",
+	Prompt: "",
+	Name: "jTerm",
+	ScrollBottomOffset: 0,
+	ScrollOnEcho: true,
+	EchoCommand: true,
 }
 
 // Clear will clear the terminal.
