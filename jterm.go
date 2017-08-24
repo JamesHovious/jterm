@@ -59,9 +59,9 @@ type Terminal struct {
 
 // DefaultTerminal contains all of the default values for the Terminal
 var DefaultTerminal = Terminal {
-	Greetings: "",
-	Prompt: "",
-	Name: "jTerm",
+	Greetings: "Interpreter with jterm and jquery.terminal",
+	Prompt: "> ",
+	Name: "jterm",
 	ScrollBottomOffset: 0,
 	ScrollOnEcho: true,
 	EchoCommand: true,

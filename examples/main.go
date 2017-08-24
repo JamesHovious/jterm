@@ -8,9 +8,8 @@ import (
 )
 
 func main() {
-	print("[-] Starting term")
-	startTerminal()
-	print("[-] Finished term")
+	defaultTerminal()
+	customTerminal()
 }
 
 func postCallbackFunction(command, term string) func() string{
@@ -22,7 +21,22 @@ func postCallbackFunction(command, term string) func() string{
 	}
 }
 
-func startTerminal() {
+// An minimal example
+func defaultTerminal() {
+	// Create an terminal with default properties.
+	jt := jterm.DefaultTerminal
+	// Define the callback function
+	post := postCallbackFunction
+	// Locate the div with the id of "termina"
+	cID := "#terminal"
+	// create a Terminal/jQuery struct
+	JQueryTerminal := jterm.NewTerminal(cID)
+	// Finally put it all together. Create the terminal.
+	jterm.CallTerminal(JQueryTerminal, jt, post)
+}
+
+// An example terminal with some custom properties.
+func customTerminal() {
 	// Building an example custom prompt
 	t := time.Now().UTC()
 	// Using jquery.terminal formatting as defined at http://terminal.jcubic.pl/api_reference.php#echo
@@ -31,14 +45,13 @@ func startTerminal() {
 	// Create an terminal with default properties.
 	jt := jterm.DefaultTerminal
 	// Populate the terminal with custom properties.
-	jt.Name ="MyTerm"
 	jt.Prompt = p
-	jt.Greetings ="Welcome to your terminal!"
+	jt.Greetings = "Custom terminal banner!"
 	
 	// Define the callback function
 	post := postCallbackFunction
 	// Locate the div with the id of "termina"
-	cID := "#terminal"
+	cID := "#custom-terminal"
 	// create a Terminal/jQuery struct
 	JQueryTerminal := jterm.NewTerminal(cID)
 	// Finally put it all together. Create the terminal.
