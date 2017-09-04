@@ -40,7 +40,7 @@ type Terminal struct {
 	Name               string      `js:"name"`
 	ScrollBottomOffset int         `js:"scollBottomOffse"`
 	ScrollOnEcho       bool        `js:"scrollOnEcho"`
-	EchoCommand        bool        `js:"echo"`
+	EchoCommand        bool        `js:"echoCommand"`
 }
 
 // Clear will clear the terminal.
